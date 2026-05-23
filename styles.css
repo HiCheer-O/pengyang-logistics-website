@@ -94,6 +94,10 @@ a {
   color: inherit;
 }
 
+.nav-link[hidden] {
+  display: none !important;
+}
+
 .nav-link::after {
   position: absolute;
   right: 0;
@@ -961,11 +965,85 @@ a {
 
 .contact-list {
   display: grid;
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) 104px;
+  align-items: center;
+  gap: 20px;
   padding: 24px;
   border-left: 4px solid var(--gold);
   background: #f7fafc;
   color: #43536a;
+}
+
+.contact-lines {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.contact-line {
+  display: block;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.contact-panel {
+  min-width: 0;
+}
+
+.wechat-card {
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+  overflow: visible;
+  position: relative;
+  text-align: center;
+}
+
+.wechat-card img {
+  width: 64px;
+  height: 64px;
+  max-width: 64px;
+  max-height: 64px;
+  background: var(--white);
+  box-sizing: content-box;
+  cursor: zoom-in;
+  flex: 0 0 auto;
+  object-fit: contain;
+  padding: 5px;
+  border: 1px solid rgba(17, 35, 64, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(20, 48, 85, 0.08);
+  transform-origin: center right;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.wechat-card img:hover,
+.wechat-card img.is-zoomed {
+  box-shadow: 0 18px 44px rgba(20, 48, 85, 0.18);
+  transform: scale(2.25);
+  z-index: 10;
+}
+
+.wechat-card img.is-zoomed {
+  cursor: zoom-out;
+}
+
+.wechat-card strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--navy);
+}
+
+.wechat-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .site-footer {
@@ -1023,6 +1101,10 @@ a {
 
   .tracking-sidebar {
     min-height: auto;
+  }
+
+  .contact-panel {
+    grid-template-columns: 1fr;
   }
 
   .detail-grid {
@@ -1084,6 +1166,30 @@ a {
 
   .tracking-summary {
     flex-direction: column;
+  }
+
+  .contact-list {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .contact-line:first-child {
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .wechat-card {
+    grid-template-columns: auto 1fr;
+    justify-content: start;
+    text-align: left;
+    padding-top: 14px;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .wechat-card img {
+    transform-origin: center left;
   }
 
   .detail-head {

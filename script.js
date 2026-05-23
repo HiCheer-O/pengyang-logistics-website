@@ -7,6 +7,7 @@ const trackingCount = document.querySelector("#trackingCount");
 const queryButton = form?.querySelector("button[type='submit']");
 const languageButtons = document.querySelectorAll(".language-option");
 const navLinks = document.querySelectorAll(".nav-link");
+const wechatQr = document.querySelector(".wechat-card img");
 const observedSections = document.querySelectorAll("#about, #services, #tracking, #contact");
 const currentPage = document.body.dataset.page || "home";
 
@@ -44,6 +45,7 @@ const translations = {
     "metrics.trackingText": "节点跟踪",
     "services.eyebrow": "Services",
     "services.title": "覆盖跨境运输全链路",
+    "services.copy": "围绕跨境贸易与国际运输场景，澎洋国际整合订舱、仓储、报关、干线运输与目的地派送等环节，协助客户建立更稳定、更清晰、更便于跟踪的物流执行方案。",
     "services.seaTitle": "国际海运",
     "services.seaText": "整柜、拼箱、港到港及门到门方案，适配大宗货物与常规外贸运输需求。",
     "services.airTitle": "国际空运",
@@ -113,11 +115,13 @@ const translations = {
     "tracking.exceptionDetail": "当前货件存在资料、清关或派送异常，请联系业务人员协助处理。",
     "contact.eyebrow": "Contact",
     "contact.title": "欢迎咨询国际物流方案",
-    "contact.copy": "联系方式、公司地址、工作时间及二维码区域可在后续替换为真实信息。",
+    "contact.copy": "无论是常规外贸运输、跨境电商备货，还是紧急空运与门到门交付需求，欢迎与澎洋国际联系。我们会根据货物类型、目的地、时效与预算，为您提供更合适的运输建议。",
     "contact.phoneLabel": "电话：",
     "contact.emailLabel": "邮箱：",
     "contact.addressLabel": "地址：",
-    "contact.addressValue": "广州市，花都区罗仙村罗仙八队四巷一号",
+    "contact.addressValue": "广州市花都区罗仙八队四巷一号澎洋仓",
+    "contact.wechatLabel": "微信咨询",
+    "contact.wechatManager": "彭经理",
   },
   en: {
     "meta.description": "Official website of Guangzhou Pengyang International Logistics Co., Ltd., featuring international ocean freight, air freight, customs clearance, warehousing, delivery, and shipment tracking.",
@@ -152,6 +156,7 @@ const translations = {
     "metrics.trackingText": "Milestone tracking",
     "services.eyebrow": "Services",
     "services.title": "Full-chain cross-border transportation coverage",
+    "services.copy": "For cross-border trade and international transportation scenarios, Pengyang International integrates booking, warehousing, customs declaration, mainline transport, and destination delivery to help clients build logistics execution plans that are more stable, transparent, and easier to track.",
     "services.seaTitle": "Ocean Freight",
     "services.seaText": "FCL, LCL, port-to-port, and door-to-door solutions for bulk cargo and regular foreign trade shipments.",
     "services.airTitle": "Air Freight",
@@ -221,11 +226,13 @@ const translations = {
     "tracking.exceptionDetail": "This shipment has a documentation, customs, or delivery exception. Please contact the service team for support.",
     "contact.eyebrow": "Contact",
     "contact.title": "Talk to us about your international logistics plan",
-    "contact.copy": "Contact details, office address, working hours, and QR codes can be replaced with official information later.",
+    "contact.copy": "Whether you need regular foreign trade shipping, cross-border e-commerce replenishment, urgent air freight, or door-to-door delivery, Pengyang International is ready to help. We provide suitable transport suggestions based on cargo type, destination, timeline, and budget.",
     "contact.phoneLabel": "Phone: ",
     "contact.emailLabel": "Email: ",
     "contact.addressLabel": "Address: ",
-    "contact.addressValue": "No. 1, Lane 4, Luoxian 8th Team, Luoxian Village, Huadu District, Guangzhou",
+    "contact.addressValue": "Pengyang Warehouse, No. 1, Lane 4, Luoxian 8th Team, Huadu District, Guangzhou",
+    "contact.wechatLabel": "WeChat Consultation",
+    "contact.wechatManager": "Manager Peng",
   },
   ms: {
     "meta.description": "Laman rasmi Guangzhou Pengyang International Logistics Co., Ltd., memaparkan perkhidmatan pengangkutan laut, udara, pelepasan kastam, gudang, penghantaran, dan penjejakan logistik.",
@@ -260,6 +267,7 @@ const translations = {
     "metrics.trackingText": "Penjejakan status",
     "services.eyebrow": "Services",
     "services.title": "Liputan penuh untuk pengangkutan rentas sempadan",
+    "services.copy": "Untuk perdagangan rentas sempadan dan pengangkutan antarabangsa, Pengyang International menggabungkan tempahan ruang, pergudangan, deklarasi kastam, pengangkutan utama, dan penghantaran destinasi bagi membantu pelanggan membina pelan logistik yang lebih stabil, jelas, dan mudah dijejaki.",
     "services.seaTitle": "Pengangkutan Laut",
     "services.seaText": "Penyelesaian FCL, LCL, pelabuhan ke pelabuhan, dan pintu ke pintu untuk kargo pukal serta penghantaran perdagangan biasa.",
     "services.airTitle": "Pengangkutan Udara",
@@ -329,11 +337,13 @@ const translations = {
     "tracking.exceptionDetail": "Penghantaran ini mempunyai isu dokumen, kastam, atau penghantaran. Sila hubungi pasukan servis untuk bantuan.",
     "contact.eyebrow": "Contact",
     "contact.title": "Hubungi kami untuk pelan logistik antarabangsa",
-    "contact.copy": "Butiran hubungan, alamat pejabat, waktu kerja, dan kod QR boleh digantikan dengan maklumat rasmi kemudian.",
+    "contact.copy": "Sama ada penghantaran perdagangan biasa, stok e-dagang rentas sempadan, pengangkutan udara segera, atau penghantaran pintu ke pintu, Pengyang International sedia membantu. Kami akan mencadangkan pilihan pengangkutan berdasarkan jenis kargo, destinasi, tempoh masa, dan bajet.",
     "contact.phoneLabel": "Telefon: ",
     "contact.emailLabel": "E-mel: ",
     "contact.addressLabel": "Alamat: ",
-    "contact.addressValue": "No. 1, Lorong 4, Pasukan Luoxian 8, Kampung Luoxian, Daerah Huadu, Guangzhou",
+    "contact.addressValue": "Gudang Pengyang, No. 1, Lorong 4, Pasukan Luoxian 8, Daerah Huadu, Guangzhou",
+    "contact.wechatLabel": "Konsultasi WeChat",
+    "contact.wechatManager": "Pengurus Peng",
   },
 };
 
@@ -746,6 +756,17 @@ languageButtons.forEach((button) => {
 navLinks.forEach((link) => {
   link.addEventListener("click", () => setActiveNav(link.dataset.pageLink || link.dataset.section));
 });
+
+if (wechatQr) {
+  wechatQr.addEventListener("click", (event) => {
+    event.stopPropagation();
+    wechatQr.classList.toggle("is-zoomed");
+  });
+
+  document.addEventListener("click", () => {
+    wechatQr.classList.remove("is-zoomed");
+  });
+}
 
 if (form) {
   form.addEventListener("submit", (event) => {
